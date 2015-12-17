@@ -1,0 +1,88 @@
+
+git clone https://github.com/vetscience/ion-channel-classifier
+
+[ross@bioinfo GIT]$ ls
+BuildPseAAC.pl     Database        ion-channel-classifier             MuSICC.Run.pl             README.txt       RunSVM3.r        SequenceGrouping.pl
+CompileResults.pl  FirstFilter.pl  MuSICC.IonChannels_accessions.csv  PseAAC.DataPreProcess.pl  RetrieveSeqs.pl  SecondFilter.pl  SVMClassifier.r
+
+[ross@bioinfo GIT]$ cd ion-channel-classifier
+[ross@bioinfo ion-channel-classifier]$ ls
+LICENSE  README.md
+
+[ross@bioinfo GIT]$ cp *.* ion-channel-classifier
+
+[ross@bioinfo GIT]$ cp -R Database ion-channel-classifier
+
+[ross@bioinfo GIT]$ cd ion-channel-classifier
+[ross@bioinfo ion-channel-classifier]$ ls
+BuildPseAAC.pl     Database        LICENSE                            MuSICC.Run.pl             README.md   RetrieveSeqs.pl  SecondFilter.pl      SVMClassifier.r
+CompileResults.pl  FirstFilter.pl  MuSICC.IonChannels_accessions.csv  PseAAC.DataPreProcess.pl  README.txt  RunSVM3.r        SequenceGrouping.pl
+
+[ross@bioinfo ion-channel-classifier]$ git status -s
+?? BuildPseAAC.pl
+?? CompileResults.pl
+?? Database/
+?? FirstFilter.pl
+?? MuSICC.IonChannels_accessions.csv
+?? MuSICC.Run.pl
+?? PseAAC.DataPreProcess.pl
+?? README.txt
+?? RetrieveSeqs.pl
+?? RunSVM3.r
+?? SVMClassifier.r
+?? SecondFilter.pl
+?? SequenceGrouping.pl
+
+[ross@bioinfo ion-channel-classifier]$ git add *.pl
+[ross@bioinfo ion-channel-classifier]$ git add *.r
+[ross@bioinfo ion-channel-classifier]$ git add *.csv
+[ross@bioinfo ion-channel-classifier]$ git add Database
+[ross@bioinfo ion-channel-classifier]$ git add README.txt
+
+[ross@bioinfo ion-channel-classifier]$ git status -s
+A  BuildPseAAC.pl
+A  CompileResults.pl
+A  Database/KEGG.GeneList.txt
+A  Database/KEGG.Kterms.txt
+A  Database/MuSICC.ConservedDomProfiles.txt
+A  Database/MuSICC.TransDomProfiles.txt
+A  Database/PseAAC.table.txt
+A  FirstFilter.pl
+A  MuSICC.IonChannels_accessions.csv
+A  MuSICC.Run.pl
+A  PseAAC.DataPreProcess.pl
+A  README.txt
+A  RetrieveSeqs.pl
+A  RunSVM3.r
+A  SVMClassifier.r
+A  SecondFilter.pl
+A  SequenceGrouping.pl
+
+[ross@bioinfo ion-channel-classifier]$ git config --global user.email rossh@unimelb.edu.au
+[ross@bioinfo ion-channel-classifier]$ git commit --amend --reset-author
+
+[ross@bioinfo ion-channel-classifier]$ git commit -m "Ross Hall - Dec 17, 2015"
+[master a95d9fd] Ross Hall - Dec 17, 2015
+ 17 files changed, 47987 insertions(+)
+ create mode 100644 BuildPseAAC.pl
+ create mode 100644 CompileResults.pl
+ create mode 100644 Database/KEGG.GeneList.txt
+ create mode 100644 Database/KEGG.Kterms.txt
+ create mode 100644 Database/MuSICC.ConservedDomProfiles.txt
+ create mode 100644 Database/MuSICC.TransDomProfiles.txt
+ create mode 100644 Database/PseAAC.table.txt
+ create mode 100644 FirstFilter.pl
+ create mode 100644 MuSICC.IonChannels_accessions.csv
+ create mode 100644 MuSICC.Run.pl
+ create mode 100644 PseAAC.DataPreProcess.pl
+ create mode 100644 README.txt
+ create mode 100644 RetrieveSeqs.pl
+ create mode 100644 RunSVM3.r
+ create mode 100644 SVMClassifier.r
+ create mode 100644 SecondFilter.pl
+ create mode 100644 SequenceGrouping.pl
+ 
+ 
+
+
+
