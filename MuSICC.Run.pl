@@ -63,6 +63,15 @@ if(@ARGV == 0)
   message();
 }
 
+
+if (!(-e "logs")) {
+	mkdir "logs";
+}
+if (!(-e "Output")) {
+	mkdir "Output";
+}	
+
+
 my $launchTime = strftime "%Y%m%d_%H%M%S", localtime;
 my $logFile = "logs/" . $launchTime . ".log";
 my $errorfile = "logs/" . $launchTime . ".error.log";
@@ -88,7 +97,6 @@ if($blast eq "") #BLASTp has not been run, results not provided
     print SYSLOG $syslogging;
     die $syslogging;
   }
-  exit();
   $syslogging = "\tEnd of BLASTp " . strftime("%Y %b %a %H:%M:%S", localtime) . ".\nStep 2: Start of first filtering process\n";
   print $syslogging;
   print SYSLOG $syslogging;
@@ -181,7 +189,7 @@ if($? != 0)
 $syslogging = "Step 6: Predicting the conserved domains " . strftime("%Y %b %a %H:%M:%S", localtime) . "\n";
 print $syslogging;
 print SYSLOG $syslogging;
-system("interproscan.h -i Output/FilteredSequences.fa -f tsv --goterms -dp -o Output/ipro.tsv 2> $errorfile");
+system("interproscan.sh -i Output/FilteredSequences.fa -f tsv --goterms -dp -o Output/ipro.tsv 2> $errorfile");
 if($? != 0)
 {
   $syslogging = "\tERROR: MuSICC encounters an error while predicting conserved domains at " . strftime("%Y %b %a %H:%M:%S", localtime) . "\n\tError message can be found in $errorfile.\n\n";
@@ -224,7 +232,7 @@ if($? != 0)
   print SYSLOG $syslogging;
   die $syslogging;
 }
-system("perl BuildPseAAC.pl -i Scripts/Output/FormattedFasta.fa 2> $errorfile");
+system("perl BuildPseAAC.pl -i Output/FormattedFasta.fa 2> $errorfile");
 if($? != 0)
 {
   $syslogging = "\tERROR: MuSICC encounters an error while computing the PseAAC at " . strftime("%Y %b %a %H:%M:%S", localtime) . "\n\tError message can be found in $errorfile.\n\n";
