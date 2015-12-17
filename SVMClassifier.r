@@ -31,5 +31,5 @@ for(i in 1:nrow(data))
 #Sort it according to the probability values
 sorted <- fullclass[order(-fullclass$Probability),]
 
-filename <- paste("MuSICC.Results",Sys.Date(),".txt")
+filename <- paste("MuSICC.Results",Sys.Date(),".txt",sep="_")
 write.table(sorted,filename,sep="\t")
